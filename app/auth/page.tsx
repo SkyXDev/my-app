@@ -2,6 +2,10 @@
 
 import { createClient } from "@/lib/supabase/client";
 import { useEffect, useState } from "react";
+import { useAuth } from "../contexts/auth-context";
+import { useRouter } from "next/navigation";
+
+
 
 export default function AuthPage() {
 	const [isSignUp, setIsSignUp] = useState<boolean>(false);
@@ -10,6 +14,14 @@ export default function AuthPage() {
 	const [loading, setLoading] = useState<boolean>(false);
   	const [error, setError] = useState<string>("");
 	const supabase = createClient()
+	const {user, loading: authLoading} = useAuth()
+	const router = useRouter()
+
+	useEffect(() => {
+		if (user && !authLoading){
+			router.push("/");
+		}
+	}, [user, authLoading, router])
 
 	async function handleAuth(e: React.FormEvent) {
 		e.preventDefault()
