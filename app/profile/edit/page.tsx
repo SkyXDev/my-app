@@ -5,7 +5,7 @@
 export default function editProfilePage(){
 
 	async function handleFormSubmit(){
-		
+
 	}
 
 	return (
@@ -23,7 +23,24 @@ export default function editProfilePage(){
 				<form
 					className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8"
 					onSubmit={handleFormSubmit}
-				></form>
+				>
+					<div className="mb-8">
+						<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">
+							Profile Picture
+						</label>
+						<div className="flex items-center space-x-6">
+							<div className="relative">
+								<div className="w-24 h-24 rounded-full overflow-hidden">
+									<img
+									src={/*formData.avatar_url || */"/default-avatar.png"}
+									alt="Profile"
+									className="w-full h-full object-cover"
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
 
 			</div>
 		</div>
