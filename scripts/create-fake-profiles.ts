@@ -3,8 +3,8 @@ import { faker } from "@faker-js/faker";
 import "dotenv/config";
 
 // Configuration
-const SUPABASE_URL = `your_url`;
-const SUPABASE_SERVICE_ROLE_KEY = `your_service_role_key`;
+const SUPABASE_URL = `https://lihdwcgmolawgdkxqdfd.supabase.co`;
+const SUPABASE_SERVICE_ROLE_KEY = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpaGR3Y2dtb2xhd2dka3hxZGZkIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NjI4MjcxOCwiZXhwIjoyMDcxODU4NzE4fQ.I-f_YRFIvCpoofkZRVcUrQsJtrJG3PR-QE7gbC7N0-g`;
 const PASSWORD = "password";
 
 // Initialize Supabase client with service role key
