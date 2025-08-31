@@ -17,16 +17,14 @@ export default function matchesPage(){
 	const [matchedUser, setMatchedUser] = useState<UserProfile | null>(null);
 
 	const router = useRouter();
-
+	console.log(loading, currentIndex, potentialMatches)
 	useEffect(() => {
 		async function loadUsers() {
 		try {
 			const potentialMatchesData = await getPotentialMatches();
 			setPotentialMatches(potentialMatchesData);
-			console.log("loaded")
 		} catch (error) {
 			console.error(error);
-			console.log("not loaded")
 		} finally {
 			setLoading(false);
 		}
@@ -59,6 +57,18 @@ export default function matchesPage(){
 
 	function handleStartChat(){
 		
+	}
+	if (loading) {
+		return (
+		<div className="h-full bg-gradient-to-br from-pink-50 to-red-50 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
+			<div className="text-center">
+			<div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500 mx-auto"></div>
+			<p className="mt-4 text-gray-600 dark:text-gray-400">
+				Finding your matches...
+			</p>
+			</div>
+		</div>
+		);
 	}
 
 	if (currentIndex >= potentialMatches.length) {
@@ -93,25 +103,13 @@ export default function matchesPage(){
 	}
 
 	function handlePass() {
-		if (currentIndex < potentialMatches.length - 1) {
+		if (currentIndex < potentialMatches.length) {
 		setCurrentIndex((prev) => prev + 1);
 		}
 	}
 
 
-	if (loading) {
-		return (
-		<div className="h-full bg-gradient-to-br from-pink-50 to-red-50 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-			<div className="text-center">
-			<div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500 mx-auto"></div>
-			<p className="mt-4 text-gray-600 dark:text-gray-400">
-				Finding your matches...
-			</p>
-			</div>
-		</div>
-		);
-	}
-
+	
 	const currentPotentialMatch = potentialMatches[currentIndex]
 	console.log(potentialMatches)
 	return (
