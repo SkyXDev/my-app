@@ -3,27 +3,14 @@ import { getUserMatches } from "@/lib/actions/matches";
 import { UserProfile } from "@/app/profile/page";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { calculateAge } from "@/lib/actions/calculate-age";
 
 export default function MatchesListPage(){
 	const [matches, setMatches] = useState<UserProfile[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 
-	function calculateAge(birthdate: string) {
-		const today = new Date();
-		const birthDate = new Date(birthdate);
-		let age = today.getFullYear() - birthDate.getFullYear();
-		const monthDiff = today.getMonth() - birthDate.getMonth();
-
-		if (
-			monthDiff < 0 ||
-			(monthDiff === 0 && today.getDate() < birthDate.getDate())
-		) {
-			age--;
-		}
-
-		return age;
-	}
+	
 	useEffect(() => {
 		async function loadMatches (){
 			try{
