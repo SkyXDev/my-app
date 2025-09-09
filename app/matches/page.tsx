@@ -9,7 +9,7 @@ import { likeUser } from "@/lib/actions/matches";
 import MatchNotification from "../components/MatchNotification";
 
 
-export default function matchesPage(){
+export default function MatchesPage(){
 	const [potentialMatches, setPotentialMatches] = useState<UserProfile[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [currentIndex, setCurrentIndex] = useState(0);
