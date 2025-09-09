@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getCurrentUserProfile, updateUserProfile } from "@/lib/actions/profile";
 
-export default function editProfilePage(){
+export default function EditProfilePage(){
 
 	const [loading, setLoading] = useState(true);
 	const [saving, setSaving] = useState(false);

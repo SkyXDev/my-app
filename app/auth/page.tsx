@@ -43,10 +43,14 @@ export default function AuthPage() {
 				const {error} = await supabase.auth.signInWithPassword({ email, password });
 				if (error) throw error;
 			}
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		}catch(error: any){
+		}catch (error: unknown) {
+		if (error instanceof Error) {
 			setError(error.message);
-		}finally{
+		} else {
+			setError(String(error));
+		}
+		}
+		finally{
 			setLoading(false)
 		}
 	}
