@@ -9,7 +9,7 @@ import { getUserMatches } from "@/lib/actions/matches"
 import ChatHeader from "@/app/components/ChatHeader"
 import StreamChatInterface from "@/app/components/StreamChatInterface"
 
-export default function chatConversationPage(){
+export default function ChatConversationPage(){
 	const params = useParams()
 	const [loading, setLoading] = useState(true);
 	const [otherUser, setOtherUser] = useState<UserProfile | null>(null)
