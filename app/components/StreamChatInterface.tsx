@@ -137,6 +137,7 @@ export default function StreamChatInterface({
         chatChannel.on("message.new", (event: Event) => {
           if (event.message) {
             if (event.message.text?.includes(`📹 Video call invitation`)) {
+              /* eslint-disable @typescript-eslint/no-explicit-any */
               const customData = event.message as any;
 
               if (customData.caller_id !== userId) {
